@@ -13,9 +13,9 @@ import (
 var db *sql.DB
 
 func main() {
-	addr := os.Getenv("ADDR")
-	if addr == "" {
-		addr = ":8081"
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "3000"
 	}
 
 	dbAddr := os.Getenv("DATABASE_URL")
@@ -31,6 +31,8 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	addr := ":" + port
 
 	log.Printf("listening for requests. addr=%s\n", addr)
 
