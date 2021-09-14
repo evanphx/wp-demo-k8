@@ -21,7 +21,7 @@ func main() {
 	dbAddr := os.Getenv("DATABASE_URL")
 
 	var err error
-	if dbAddr != "" {
+	if dbAddr == "" {
 		dbAddr = "database=hashiconf-demo"
 	}
 
