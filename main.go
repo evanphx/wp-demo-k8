@@ -44,6 +44,7 @@ func handle(w http.ResponseWriter, r *http.Request) {
 
 	err := db.Ping()
 	if err != nil {
+		log.Printf("error pinging database: %s", err)
 		w.WriteHeader(http.StatusInternalServerError)
 		fmt.Fprintf(w, "error servicing request: %s\n", err)
 		return
