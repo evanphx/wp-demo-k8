@@ -25,7 +25,7 @@ func main() {
 		dbAddr = "database=hashiconf-demo"
 	}
 
-	log.Println("creating database handle")
+	log.Printf("creating database handle: %s\n", dbAddr)
 
 	db, err = sql.Open("postgres", dbAddr)
 	if err != nil {
