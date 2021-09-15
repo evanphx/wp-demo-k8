@@ -50,5 +50,5 @@ func handle(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	fmt.Println(w, "app is ok!")
+	fmt.Fprintln(w, "app is ok!")
 }
