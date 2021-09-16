@@ -10,9 +10,18 @@ import (
 	_ "github.com/lib/pq"
 )
 
-var db *sql.DB
+var (
+	db  *sql.DB
+	env string
+)
 
 func main() {
+	env = os.Getenv("APP_ENV")
+	if env == "" {
+		log.Printf("No app env set, presuming development")
+		env = "development"
+	}
+
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "3000"
@@ -50,5 +59,5 @@ func handle(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	fmt.Fprintln(w, "app is ok!")
+	fmt.Fprintf(w, "app is ok!\nenv=%s\n", env)
 }
