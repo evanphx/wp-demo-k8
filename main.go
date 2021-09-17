@@ -31,7 +31,7 @@ func main() {
 
 	var err error
 	if dbAddr == "" {
-		dbAddr = "database=hashiconf-demo"
+		dbAddr = "postgres://localhost/hashiconf-demo?sslmode=disable"
 	}
 
 	log.Printf("creating database handle: %s\n", dbAddr)
